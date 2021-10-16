@@ -4,8 +4,8 @@ Connect to PostgreSQL and kill long running sessions
 
 # Usage:
 
-$ pgsql-auto-kill.py
-
+*$ pgsql-auto-kill.py*
+```
 -f <db.conf>       =  Set database variables to connect instead of setting on code  
 -a, --auto-kill    =  Auto kill query without prompting  
 -k, --kill-all     =  Kill every Query, default is to kill SELECT only !!!! WARNING: USE WITH CAUTION !!!!  
@@ -14,14 +14,17 @@ $ pgsql-auto-kill.py
 --dry-run          =  Simulation mode, do not kill anything, just check and prints what to do   
 -v                 =  Verbose   
 -h, --help         =  Show this help  
+```
 
-# Enviroment Variables for container usage or running without db.conf file
+# Enviroment Variables 
 
-**PY_PGKILL_HOST** -- Host or IP Address  
-**PY_PGKILL_DATABASE** -- Database name   
-**PY_PGKILL_USER** -- User     
-**PY_PGKILL_PASSWORD** -- Password    
-**PY_PGKILL_AUTOKILL** -- Enable Auto Kill flag with "True"   
+Great to use with docker/k8s usage or running without db.conf file multiple times on crontab.
+
+**PY_PGKILL_HOST**         -- Host or IP Address  
+**PY_PGKILL_DATABASE**     -- Database name   
+**PY_PGKILL_USER**         -- DB User     
+**PY_PGKILL_PASSWORD**     -- DB Password    
+**PY_PGKILL_AUTOKILL**     -- Enable Auto Kill flag with "True"   
 
 Enviroment PY_PGKILL_DATABASE is a must if you want to use enviroment variables.  
 If you do not set USER/HOST after setting DATABASE it will assume 'postgres' and '127.0.0.1'.   
