@@ -6,45 +6,31 @@ Connect to PostgreSQL and kill long running sessions
 
 $ pgsql-auto-kill.py
 
--f <db.conf>       =  Set database variables to connect instead of setting on code
-
--a, --auto-kill    =  Auto kill query without prompting
-
--k, --kill-all     =  Kill every Query, default is to kill SELECT only !!!! WARNING: USE WITH CAUTION !!!!
-
--n, --limit        =  Limit number of query returned, default = 15
-
--t, --time         =  Time duration interval to check, default = 10
-
---dry-run          =  Simulation mode, do not kill anything, just check and prints what to do
-
--v                 =  Verbose
-
--h, --help         =  Show this help
+-f <db.conf>       =  Set database variables to connect instead of setting on code  
+-a, --auto-kill    =  Auto kill query without prompting  
+-k, --kill-all     =  Kill every Query, default is to kill SELECT only !!!! WARNING: USE WITH CAUTION !!!!  
+-n, --limit        =  Limit number of query returned, default = 15  
+-t, --time         =  Time duration interval to check, default = 10  
+--dry-run          =  Simulation mode, do not kill anything, just check and prints what to do   
+-v                 =  Verbose   
+-h, --help         =  Show this help  
 
 # Enviroment Variables for container usage or running without db.conf file
 
-**PY_PGKILL_HOST** -- Host or IP Address
+**PY_PGKILL_HOST** -- Host or IP Address  
+**PY_PGKILL_DATABASE** -- Database name   
+**PY_PGKILL_USER** -- User     
+**PY_PGKILL_PASSWORD** -- Password    
+**PY_PGKILL_AUTOKILL** -- Enable Auto Kill flag with "True"   
 
-**PY_PGKILL_DATABASE** -- Database name
-
-**PY_PGKILL_USER** -- User
-
-**PY_PGKILL_PASSWORD** -- Password
-
-**PY_PGKILL_AUTOKILL** -- Enable Auto Kill flag with "True"
-
-
-Enviroment PY_PGKILL_DATABASE is a must if you want to use enviroment variables.
-
-If you do not set USER/HOST after setting DATABASE it will assume 'postgres' and '127.0.0.1'.
+Enviroment PY_PGKILL_DATABASE is a must if you want to use enviroment variables.  
+If you do not set USER/HOST after setting DATABASE it will assume 'postgres' and '127.0.0.1'.   
 
 
 # Notes
 
-ENV has a higher prioritity than config files
-
-For passwordless connection: With user 'postgres' remove host and password from db.file section 
+ENV has a higher prioritity than config files.   
+For passwordless connection: With user 'postgres' remove host and password from db.file section.   
 
 
 # Examples 
