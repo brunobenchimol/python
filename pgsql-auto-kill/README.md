@@ -22,11 +22,11 @@ Great to use with docker/k8s usage or running without db.conf file multiple time
 
 | Enviroment | Description |
 | ---------- | ----------- |
-| **PY_PGKILL_HOST**      |  Host or IP Address | 
-| **PY_PGKILL_DATABASE**  |  Database name |
-| **PY_PGKILL_USER**      |  DB User |
-| **PY_PGKILL_PASSWORD**  |  DB Password |   
-| **PY_PGKILL_AUTOKILL**  | Enable Auto Kill flag with "True" |  
+| `PY_PGKILL_HOST`      |  Host or IP Address | 
+| `PY_PGKILL_DATABASE`  |  Database name |
+| `PY_PGKILL_USER`      |  DB User |
+| `PY_PGKILL_PASSWORD`  |  DB Password |   
+| `PY_PGKILL_AUTOKILL`  | Enable Auto Kill flag with "True" |  
 
 Enviroment PY_PGKILL_DATABASE is a must if you want to use enviroment variables.  
 If you do not set USER/HOST after setting DATABASE it will assume 'postgres' and '127.0.0.1'.   
