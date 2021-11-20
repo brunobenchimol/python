@@ -161,7 +161,7 @@ def load_config(filename, section='postgresql'):
         for param in params:
             dbconfig[param[0]] = param[1]
     else:
-        raise Exception('Section {0} not found in the {1} file'.format(section, filename))
+        raise Exception(f"Section {section} not found in the {filename} file")
 
     return dbconfig
 
