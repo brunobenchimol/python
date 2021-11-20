@@ -41,7 +41,7 @@ def create_config_from_env():
         if var in os.environ:
             if var == "PY_PGKILL_AUTOKILL":
                 if str(os.getenv(var)).lower() == 'true':
-                    global AUTOKILL
+                    global AUTOKILL # pylint: disable=global-statement
                     AUTOKILL = True
             else:
                 param = var.split("_")[2].lower()
@@ -94,11 +94,12 @@ def prompt_to_kill_query(cursor, row):
         print("Doing nothing for pid " + str(row['pid']))
 
 def db_run():
+    # pylint: disable=too-many-branches
     """ Connect to the PostgreSQL database server """
     conn = None
     # read connection parameters
     params = load_config(DBFILE)
-    try:
+    try: # pylint: disable=too-many-nested-blocks
         # connect to the PostgreSQL server
         if VERBOSE:
             print('Connecting to the PostgreSQL database...')
@@ -179,12 +180,11 @@ def printhelp():
     print('-h, --help         =  Show this help')
 
 def main(argv):
+    # pylint: disable=global-statement
     """Main Function"""
     try:
-        #opts, args = getopt.getopt(argv, "hakvf:n:t:",
-        #                           ["help", "dbfile =", "auto-kill", "kill-all", "limit =", "time =", "dry-run"])
-        opts = getopt.getopt(argv, "hakvf:n:t:",
-                             ["help", "dbfile =", "auto-kill", "kill-all", "limit =", "time =", "dry-run"])
+        opts, args = getopt.getopt(argv, "hakvf:n:t:", # pylint: disable=unused-variable
+                                   ["help", "dbfile =", "auto-kill", "kill-all", "limit =", "time =", "dry-run"])
     except getopt.GetoptError:
         print("Error reading arguments. Try --help")
         sys.exit(2)
