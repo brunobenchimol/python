@@ -9,6 +9,7 @@ on:
   workflow_dispatch:
 
 # https://github.com/marketplace/actions/github-action-for-pylint
+# https://github.com/marketplace/actions/python-pylint-github-action
 
 jobs:
   pylint:
