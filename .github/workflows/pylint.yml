@@ -1,0 +1,23 @@
+name: PyLint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+# https://github.com/marketplace/actions/github-action-for-pylint
+
+jobs:
+  pylint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: GitHub Action for pylint
+        uses: cclauss/GitHub-Action-for-pylint@0.7.0
+        with:
+          # find every requirements.txt since we using multiple projects into one github action
+          args: "find . -type f -name requirements.txt | xargs -n 1 pip install -r ; pylint **/*.py"
